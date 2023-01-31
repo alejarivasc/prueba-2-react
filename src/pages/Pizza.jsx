@@ -1,4 +1,17 @@
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 export default function Pizza() {
+
+  const getPizza = async () => {
+    const res = await fetch(`pizzas.json/${params.id}`);
+    const data = await res.json();
+  };
+
+    useEffect(() => {
+      getPizza();
+    }, []);
+
   return (
     <div className="card mb-3 mt-5">
       <div className="row g-0">
