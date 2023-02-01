@@ -1,3 +1,3 @@
-# Template Basic Prueba React II
+# Prueba en desarrollo
 
-- [Deploy](https://venerable-froyo-679f53.netlify.app/pizzas)
+
