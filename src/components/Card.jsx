@@ -31,7 +31,7 @@ export default function Card ({info}) {
             >
               Comprar
             </Link>
-            <Link to="/pizzas/1"
+            <Link to= {`/pizzas/${info.id}`}
               className="btn btn-outline-danger"
             >
               Ver detalles

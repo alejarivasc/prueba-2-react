@@ -8,6 +8,7 @@ export default function Pizzas() {
     const res = await fetch("pizzas.json");
     const data = await res.json();
     setPizzas(data);
+    console.log (data)
   };
   useEffect(() => {
     getData();
