@@ -8,14 +8,10 @@ export default function Pizza() {
 
 
   const getPizza = async () => {
-
-    
-      const res = await fetch(`/pizzas/${id}`);
+        const res = await fetch(`/pizzas/${id}`);
       const data = await res.json();
-      const pizzaData = data.findIndex ((item) => item.id === id.id)
-      setPizzaData(pizzaData);
+      setPizzaData(data);
       console.log(data);
-    
   };
     useEffect(() => {
       getPizza();
