@@ -1,25 +1,26 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCartContext } from "../context/CartContext";
 
 export default function Pizza() {
-  const [pizzaData , setPizzaData] = useState("");
-  const {id} = useParams();
-  console.log(id)
+  const [pizzaData, setPizzaData] = useState("");
+  const params = useParams();
 
+  const { addPizza } = useCartContext();
 
   const getPizza = async () => {
-        const res = await fetch(`/pizzas/${id}`);
-      const data = await res.json();
-      setPizzaData(data);
-      console.log(data);
+    const res = await fetch("/pizzas.json");
+    const data = await res.json();
+    const pizzaData = data.find((info) => info.id === params.id);
+
+    setPizzaData(pizzaData);
+    console.log(pizzaData);
   };
-    useEffect(() => {
-      getPizza();
-    }, [id]);
+  useEffect(() => {
+    getPizza();
+  }, [params]);
 
   return (
-
-
     <div className="card mb-3 mt-5">
       <div className="row g-0">
         <div className="col-md-4">
@@ -32,15 +33,25 @@ export default function Pizza() {
         <div className="col-md-8">
           <div className="card-body">
             <h5 className="fs-1">{pizzaData.name}</h5>
+            <hr />
+            <p className="card-text">{pizzaData.desc}</p>
             <p className="card-text">
-            {pizzaData.desc}
+              <h6>Ingredientes:</h6>
+              <ul>
+                {pizzaData.ingredients?.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <h5>
+                <b>Precio: ${pizzaData.price}</b>
+              </h5>
             </p>
-            <p className="card-text">
-              {/* <small className="text-muted">
-                mozzarella, tomates, jamón y orégano
-              </small> */}
-            </p>
-            <div className="btn btn-outline-primary">Comprar</div>
+            <div
+              className="btn btn-outline-primary"
+              onClick={() => addPizza(pizzaData)}
+            >
+              Comprar{" "}
+            </div>
           </div>
         </div>
       </div>

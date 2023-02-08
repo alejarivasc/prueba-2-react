@@ -4,6 +4,8 @@ import Pizzas from "./pages/Pizzas";
 import Pizza from "./pages/Pizza";
 import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
+import NotFound from "./pages/NotFound";
+
 
 export default function App() {
   return (
@@ -12,23 +14,11 @@ export default function App() {
 
       <main className="container">
         <Routes>
-          <Route
-            path="/"
-            element={<Home />}
-          />
-          <Route
-            path="/pizzas"
-            element={<Pizzas />}
-          />
-          <Route
-            path="/pizzas/:id"
-            element={<Pizza />}
-          />
-          <Route
-            path="/cart"
-            element={<Cart />}
-          />
-          {/* Agregar ruta 404 */}
+          <Route path="/" element={<Home />} />
+          <Route path="/pizzas" element={<Pizzas />} />
+          <Route path="/pizzas/:id" element={<Pizza />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>

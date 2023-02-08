@@ -1,26 +1,22 @@
+import { NavLink } from "react-router-dom";
+import { useCartContext } from "../context/CartContext";
+
 export default function Navbar() {
+  const { total } = useCartContext();
+
   return (
     <nav className="navbar navbar-dark bg-dark">
       <div className="container">
-        <a
-          className="navbar-brand"
-          href="/"
-        >
+        <NavLink className="navbar-brand" to="/">
           MamaMía 😋
-        </a>
+        </NavLink>
         <div className="d-flex gap-2">
-          <a
-            className="btn btn-outline-light"
-            href="/pizzas"
-          >
+          <NavLink className="btn btn-outline-light" to="/pizzas">
             Pizzas
-          </a>
-          <a
-            className="btn btn-outline-info me-2"
-            href="/cart"
-          >
-            Cart: $3.99
-          </a>
+          </NavLink>
+          <NavLink className="btn btn-outline-info me-2" to="/cart">
+            Cart: ${total()}
+          </NavLink>
         </div>
       </div>
     </nav>
