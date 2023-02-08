@@ -1,0 +1,7 @@
+.fs-1, .ing, .name {
+    text-transform: capitalize;
+}
+
+.img {
+    width: 1000px;
+}

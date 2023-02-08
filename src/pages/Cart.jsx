@@ -6,7 +6,7 @@ export default function Cart() {
 
   return (
     <div>
-      <h1 className="text-center my-5">Cart</h1>
+      <h6 className="text-start my-5">Detalles del pedido</h6>
       <ul className="list-group">
         {cart.map((pizza) => (
           <CartItem key={pizza.id} info={pizza} />

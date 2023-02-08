@@ -9,7 +9,7 @@ export default function CartItem({ info }) {
         <div className="d-flex align-items-center">
           <img className="me-3" src={info.img} alt="Pizza" width="100" />
           <div>
-            <h5 className="mb-0">{info.name}</h5>
+            <h5 className="mb-0 name">{info.name}</h5>
             <small className="text-muted">${info.price}</small>
           </div>
         </div>
@@ -20,6 +20,7 @@ export default function CartItem({ info }) {
           >
             -
           </button>
+          
           <button className="btn btn-outline-dark btn-sm disabled">
             {pizzaAmount(info.id)}
           </button>

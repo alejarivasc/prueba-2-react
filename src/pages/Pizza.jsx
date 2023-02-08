@@ -37,21 +37,25 @@ export default function Pizza() {
             <p className="card-text">{pizzaData.desc}</p>
             <p className="card-text">
               <h6>Ingredientes:</h6>
-              <ul>
+              <ul className="ing">
                 {pizzaData.ingredients?.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              </p>
+              <div className="d-flex justify-content-between">
               <h5>
                 <b>Precio: ${pizzaData.price}</b>
               </h5>
-            </p>
+            
             <div
               className="btn btn-outline-primary"
-              onClick={() => addPizza(pizzaData)}
-            >
-              Comprar{" "}
+              onClick={() => addPizza(pizzaData)}>
+              Comprar
             </div>
+                
+              </div>
+             
           </div>
         </div>
       </div>
